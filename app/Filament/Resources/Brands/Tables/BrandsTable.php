@@ -13,6 +13,7 @@ use Filament\Actions\RestoreBulkAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
@@ -43,6 +44,8 @@ class BrandsTable
                     ->toggleable(isToggledHiddenByDefault: true)
             ])
             ->filters([
+                Filter::make('name')
+                    ->toggle(),
                 TrashedFilter::make(),
             ])
             ->recordActions([
