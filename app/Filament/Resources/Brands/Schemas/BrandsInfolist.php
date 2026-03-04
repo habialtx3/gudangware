@@ -16,7 +16,7 @@ class BrandsInfolist
                 TextEntry::make('name'),
                 TextEntry::make('slug'),
                 ImageEntry::make('logo')
-                ->disk('public'),
+                ->disk('pu'),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),

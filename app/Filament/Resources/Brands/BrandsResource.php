@@ -11,6 +11,9 @@ use App\Filament\Resources\Brands\Schemas\BrandsInfolist;
 use App\Filament\Resources\Brands\Tables\BrandsTable;
 use App\Models\Brands;
 use BackedEnum;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -49,7 +52,13 @@ class BrandsResource extends Resource
                     ->searchable(),
                 TextColumn::make('slug')
                     ->searchable(),
-            ]);
+            ])
+            ->recordActions([
+                ViewAction::make(),
+                EditAction::make(),
+                DeleteAction::make()
+            ])
+            ;
     }
 
     public static function getRelations(): array
