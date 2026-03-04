@@ -27,5 +27,17 @@ class Brands extends Model
                 }
             }
         );
+
+        static::updating(
+            function($brand){
+                if($brand->isDirty('logo')){
+                    $oldLogo = $brand->getOriginal('logo');
+
+                    if($oldLogo){
+                        Storage::disk('public')->delete($oldLogo);
+                    }
+                }
+            }
+        );
     }
 }
